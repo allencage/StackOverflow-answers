@@ -3,3 +3,6 @@
 ################################################################################
 
 /WpfApplication1/WpfApplication1/bin/Debug
+/WpfApplication1/WpfApplication1/obj/Debug/MainWindow.g.cs
+/WpfApplication1/WpfApplication1/obj/Debug/App.g.cs
+/WpfApplication1/WpfApplication1/obj/Debug/MainWindow.baml

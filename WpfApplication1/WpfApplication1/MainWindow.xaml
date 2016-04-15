@@ -20,7 +20,7 @@
                     </Setter>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground">
+                            <Setter Property="Background">
                                 <Setter.Value>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF2B4702" Offset="0"/>
