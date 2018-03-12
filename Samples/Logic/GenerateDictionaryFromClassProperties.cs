@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Logic
 {
-    public interface IInter
-    {
-    }
-
-	public class MyClass : IInter
+    public class MyClass
 	{
 		public int Id { get; set; }
 		public string MyFirstString { get; set; }
 	}
 
-	public class MySecondClass : IInter
+	public class MySecondClass
 	{
 		public int Id { get; set; }
 		public string MyFirstString { get; set; }
@@ -25,15 +18,13 @@ namespace Logic
 
 	public class GenerateDictionaryFromClassProperties
 	{
-		private static Dictionary<string, string> SetReflectionPayload(IInter obj)
+		private static Dictionary<string, string> SetReflectionPayload(object obj)
 		{
-			Dictionary<string, string> dict = 
-				(from x in obj.GetType().GetProperties() select x)
-				.ToDictionary(x => 
-				x.Name, x => (x.GetGetMethod().Invoke(obj, null) == null
-						? ""
-						: x.GetGetMethod().Invoke(obj, null).ToString()));
-			return dict;
+		    return obj.GetType()
+		        .GetProperties()
+		        .ToDictionary(info => info.Name, info => (info.GetGetMethod().Invoke(obj, null) == null
+		            ? ""
+		            : info.GetGetMethod().Invoke(obj, null).ToString()));
 		}
 	}
 }
